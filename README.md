@@ -83,10 +83,10 @@ LinkPay/
 ## Roadmap
 
 - [x] **Project scaffolding & architecture design**
-- [ ] **User module**
-  - [ ] User registration & authentication
-  - [ ] JWT-based session management
-  - [ ] User profile management
+- [x] **User module**
+  - [x] User registration & authentication
+  - [x] JWT-based session management
+  - [x] User profile management
 - [ ] **Link module**
   - [ ] Payment link generation
   - [ ] Link expiry & status management
@@ -97,25 +97,9 @@ LinkPay/
   - [ ] Webhook verification & handling
   - [ ] Idempotency key implementation
   - [ ] Payment status tracking
-  - [ ] Refund support
-- [ ] **Audit & Logging module**
-  - [ ] Audit trail for all payment and link events
-  - [ ] Immutable audit log (append-only)
-  - [ ] Structured logging with correlation IDs
-- [ ] **Infrastructure**
-  - [ ] Redis caching layer
-  - [ ] Docker deployment configuration
-  - [ ] Logging & health checks
 - [ ] **Frontend**
   - [ ] Dashboard — manage links & view payments
   - [ ] Public payment page — payer-facing checkout
-  - [ ] Authentication flows (login, register)
-  - [ ] Email receipt templates
-- [ ] **Testing & Docs**
-  - [ ] Unit tests
-  - [ ] Integration tests
-  - [ ] Swagger UI documentation
-  - [ ] Load testing using JMeter
 
 ---
 
