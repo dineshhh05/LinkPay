@@ -84,9 +84,11 @@ LinkPay/
 
 - [x] **Project scaffolding & architecture design**
 - [x] **User module**
-  - [x] User registration & authentication
-  - [x] JWT-based session management
+  - [x] User registration & management
+  - [x] Database setup (PostgreSQL + Hibernate auto DDL)
   - [x] User profile management
+  - [x] Exception handling
+  - [x] Tested all endpoints & error cases via Postman
 - [ ] **Link module**
   - [ ] Payment link generation
   - [ ] Link expiry & status management
