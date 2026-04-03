@@ -1,3 +1,15 @@
 spring:
   application:
     name: linkpay
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/linkpay
+    username: postgres
+
+  jpa:
+    hibernate: 
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
