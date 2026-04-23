@@ -27,6 +27,9 @@ public class User {
     private String email;
 
     @Column(nullable=false)
+    private String hashedPassword;
+
+    @Column(nullable=false)
     private String firstName;
 
     @Column(nullable=false)
@@ -48,11 +51,13 @@ public class User {
     public User(
         String username,
         String email, 
+        String hashedPassword,
         String firstName,
         String lastName
     ){
         this.username = username;
         this.email = email;
+        this.hashedPassword = hashedPassword;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -77,6 +82,8 @@ public class User {
     public String getLastName() {return lastName;}
     public Instant getCreatedAt() {return createdAt;}
     public Instant getUpdatedAt() {return updatedAt;}
+    public String getHashedPassword() {return hashedPassword;}
+
 
 
 
@@ -88,6 +95,7 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 
 
 }

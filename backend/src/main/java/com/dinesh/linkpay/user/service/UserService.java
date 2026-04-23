@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.dinesh.linkpay.user.dto.UserCreateRequest;
@@ -30,7 +31,9 @@ public class UserService {
 
         validateParams(req);
 
-        User newUser = new User(req.getUsername(), req.getEmail(), req.getFirstName(), req.getLastName());
+        String hashedPassword = passwordEncoder.encode(req.getPassword());
+
+        User newUser = new User(req.getUsername(), req.getEmail(), hashedPassword, req.getFirstName(), req.getLastName());
 
         return userRepository.save(newUser);
     }
@@ -56,6 +59,8 @@ public class UserService {
 
 
     // Helper functions
+
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     private void validateParams(UserCreateRequest user){
 

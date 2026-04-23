@@ -18,6 +18,10 @@ public class UserCreateRequest {
     @Size(max = 255, message = "Email cannot exceed 255 characters")
     private String email;
 
+    @NotBlank(message="Password must not be blank")
+    @Size(min=8, max=30, message="Password must be atleast 8 chars long")
+    private String password;
+
     @NotBlank(message = "First name is required")
     @Size(max = 50, message = "First name cannot exceed 50 characters")
     @Pattern(regexp = "^[A-Za-z\\s'-]+$", message = "First name can only contain letters, spaces, hyphens and apostrophes")
@@ -33,11 +37,13 @@ public class UserCreateRequest {
     public UserCreateRequest(
         String username,
         String email,
+        String password,
         String firstName,
         String lastName
     ){
         this.username = username;
         this.email = email;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -56,6 +62,10 @@ public class UserCreateRequest {
     public String getLastName() {
         return lastName;
     }
+    public String getPassword() {
+        return password;
+    }
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -68,6 +78,9 @@ public class UserCreateRequest {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 
