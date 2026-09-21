@@ -6,11 +6,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+// import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import com.dinesh.linkpay.auth.exception.InvalidCredentialsException;
 import com.dinesh.linkpay.common.dto.ApiError;
 import com.dinesh.linkpay.user.exception.DuplicateEmailException;
 import com.dinesh.linkpay.user.exception.DuplicateUsernameException;
@@ -18,6 +20,18 @@ import com.dinesh.linkpay.user.exception.UserNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+    // @ExceptionHandler(MissingRequestHeaderException.class)
+    // public ResponseEntity<ApiError> handleMissingToken(MissingRequestHeaderException ex) {
+    //     // return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+    //     //     .body(Map.of("error", "Authorization token is required"));
+
+    //     ApiError error = new ApiError(HttpStatus.UNAUTHORIZED.value(), "NOT_AUTHENTICATED", "No auth token provided.");
+        
+    //     return ResponseEntity
+    //         .status(HttpStatus.UNAUTHORIZED)
+    //         .body(error);
+    // }
     
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleValidationException(MethodArgumentNotValidException ex) {
@@ -58,6 +72,17 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
             .status(HttpStatus.CONFLICT)
+            .body(error);
+    }
+
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ApiError> handleInvalidCredentialsException(InvalidCredentialsException ex){
+
+        ApiError error = new ApiError(HttpStatus.UNAUTHORIZED.value(), "INVALID_CREDENTIALS", ex.getMessage());
+
+        return ResponseEntity
+            .status(HttpStatus.UNAUTHORIZED)
             .body(error);
     }
 
