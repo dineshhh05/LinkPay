@@ -12,6 +12,7 @@ import com.dinesh.linkpay.auth.dto.AuthResponse;
 import com.dinesh.linkpay.auth.dto.LoginRequest;
 import com.dinesh.linkpay.auth.service.AuthService;
 import com.dinesh.linkpay.user.dto.UserCreateRequest;
+
 import jakarta.validation.Valid;
 
 @Controller
@@ -43,12 +44,4 @@ public class AuthController {
             .status(HttpStatus.OK)
             .body(authService.loginUser(req));
     }
-
-
-
-
-
-
-
-
 }

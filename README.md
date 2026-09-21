@@ -1,6 +1,9 @@
 # LinkPay
 > ⚠️ **Status: In Development**
 
+<img width="1000" alt="System Architecture Diagram" src="/docs/diagrams/mvp-arch-diagram.png" />
+
+
 A full-stack payment link generator that enables users to create shareable payment links — no checkout page required. Built to simulate real-world fintech infrastructure with a focus on reliability, security, and developer experience.
 
 ---
@@ -50,7 +53,8 @@ LinkPay/
 │         │    ├── dto/
 │         │    └── model/
 │         ├── link/                   # Payment link module
-│         ├── payment/                # Payment processing module
+│         ├── paymentGateway/         # Payment forwarding module
+│         ├── transaction/            # Transaction processing module
 │         ├── common/                 # Shared entities, DTOs, and utilities
 │         │    └── exception/         # Custom exceptions
 │         └── config/                 # App configuration
@@ -88,6 +92,11 @@ LinkPay/
   - [x] Database setup (PostgreSQL + Hibernate auto DDL)
   - [x] User profile management
   - [x] Exception handling
+  - [x] Tested all endpoints & error cases via Postman
+- [x] **Auth module**
+  - [x] JWT-based authentication (JwtService, JwtFilter)
+  - [x] Login & token issuance
+  - [x] Auth exception handling
   - [x] Tested all endpoints & error cases via Postman
 - [ ] **Link module**
   - [ ] Payment link generation
