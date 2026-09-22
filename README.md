@@ -1,5 +1,4 @@
 # LinkPay
-> ⚠️ **Status: In Development**
 
 <img width="1000" alt="System Architecture Diagram" src="/docs/diagrams/mvp-arch-diagram.png" />
 
